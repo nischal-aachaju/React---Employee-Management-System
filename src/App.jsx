@@ -25,10 +25,7 @@ const App = () => {
 
   return (
     <>
-    {!user ? <Login handelLogin={handelLogin} />:""}
-    {user=='admin' ? <AdminDashboard />:<EmployeeDashboard />}
-    
-
+   {!user ? <Login handelLogin={handelLogin} />:user=='admin' ? <AdminDashboard />:<EmployeeDashboard />}
     {/* <EmployeeDashboard /> */}
     {/* <AdminDashboard />  */}
     
