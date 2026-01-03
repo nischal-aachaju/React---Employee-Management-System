@@ -1,9 +1,9 @@
-import React from 'react'
-
-const AuthContext = () => {
+import React, { createContext } from 'react'
+export const AuthDatacontext=createContext()
+const AuthContext = (props) => {
   return (
     <div>
-      
+      {props.children}
     </div>
   )
 }

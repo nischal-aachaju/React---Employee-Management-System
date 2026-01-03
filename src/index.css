@@ -1,9 +1,76 @@
 @import "tailwindcss";
 
-*{
+* {
   color: #FFFFFF;
 
 }
-html,body{
+
+html,
+body {
   background-color: #111111;
+}
+
+#TaskList::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width:800px) {
+  #employeeTask {
+    display: grid;
+    height: 400px;
+    grid-template-columns: auto auto;
+
+  }
+
+  #employeeTaskRecord {
+    height: 80px;
+    width: 200px;
+    margin: 0px;
+
+  }
+
+  #employeeTaskRecord h2 {
+    font-size: 24px;
+  }
+
+  #employeeTaskRecord h3 {
+    font-size: 16px;
+  }
+  #TaskList{
+    padding-left: 5px;
+
+
+  }
+
+
+}
+
+@media (max-width:500px) {
+  #employeeTask {
+    display: grid;
+    height: 200px;
+    grid-template-columns: auto auto;
+
+  }
+
+  #employeeTaskRecord {
+    height: 60px;
+    width: 140px;
+
+
+  }
+
+  #employeeTaskRecord h2 {
+    font-size: 20px;
+    position: relative;
+    top: -4px;
+    left: -10px;
+  }
+
+  #employeeTaskRecord h3 {
+    font-size: 16px;
+    position: relative;
+    top: -4px;
+    left: -10px;
+  }
 }
