@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import Header from '../../../others/Header'
 import { CircleArrowLeft } from 'lucide-react';
 import AdminTaskList from './AdminTaskList';
-const AdminDashboard = () => {
+const AdminDashboard = ({data}) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("")
     const [employee, setEmployee] = useState("")
     const [category, setCategory] = useState("")
+console.log(data);
 
     const SubmitHandeler = (e) => {
         e.preventDefault()
@@ -22,7 +23,7 @@ const AdminDashboard = () => {
     }
     return (
         <div className='h-screen'>
-            <Header />
+            <Header data={data} />
             <div className=' flex '>
                 <form
                     onSubmit={(e) => {
