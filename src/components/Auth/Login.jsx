@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({handelLogin}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
  
     const SubmitHandeler = (e) => {
         e.preventDefault()
-        console.log("emais is",email );
-        console.log("password is ", password);
+        handelLogin(email,password)
         setEmail("")
         setPassword("")
+
+
     }
 
     return (
         <div className='h-screen w-full '>
-            <div className='flex justify-center items-center h-full w-full bg-[url(utils\login_page_background.png)]  bg-cover bg-center'>
+            <div className='flex justify-center items-center h-full w-full bg-[url(assets\images\login_page_background.png)]  bg-cover bg-center'>
                 <div
                     className='h-2/3 w-200  rounded-4xl bg-transparent backdrop-blur-sm border border-black/5 shadow-sm shadow-black/20'>
                     <form
