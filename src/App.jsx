@@ -7,14 +7,19 @@ import { AuthContext } from './context/AuthProvider'
 const App = () => {
   
   const [user, setUser] = useState(null)
-  const AuthData = useContext(AuthContext)
   const [loggedInData, setLoggedInData] = useState(null)
-  // console.log(AuthData.employees);
-// useEffect(() => {
-//   const loggedInUser = localStorage.getItem("loggedInUser")
-//   // console.log(loggedInUser);
-  
-// }, [AuthData])
+  const AuthData = useContext(AuthContext)
+
+useEffect(() => {
+  const loggedInUser = localStorage.getItem("loggedInUser")
+  if (loggedInUser){
+
+    const userLoginedData=JSON.parse(loggedInUser)
+    console.log("login xaa",userLoginedData.role);
+    setUser(userLoginedData.role)
+    // setLoggedInData(userLoginedData.role)
+  }
+}, [])
 
 
   const handelLogin=(email,password)=>{
@@ -29,7 +34,7 @@ const App = () => {
     else if (AuthData){
       const employee=AuthData.employees.find((e)=>email==e.email && password==e.password)
       if (employee){
-        localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}))
+        localStorage.setItem('loggedInUser',JSON.stringify({role:'employee',data:employee}))
         setUser('employee') 
         setLoggedInData(employee)
       }
@@ -41,9 +46,7 @@ const App = () => {
       alert("Invalid email or password ")
     }
 
-    const status=JSON.parse(localStorage.getItem('loggedInUser'))
-    setUser(status.role);
-    
+
   }
 
   return (
